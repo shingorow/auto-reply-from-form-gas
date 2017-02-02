@@ -7,14 +7,14 @@ Google Apps Script Project Key: MVmb-M4ySRz0LLn941DdUGrFSwZrFpnJA
 このプログラムを使用して起きた問題に関して当方は一切責任を負いません。
 ## 使用例
 ```javascript
-var config = {
-  docId: '', // テンプレートとして使用する Google Document ファイルの ID
-  emailLabel: 'Email', // フォーム上のメールアドレス入力欄のラベル (デフォルトは 'メールアドレス')
-  name: '送り主太郎',
-  from: 'sender@example.com',
-}
-
 function onSubmit(e) {
+  var config = {
+    docId: '', // テンプレートとして使用する Google Document ファイルの ID
+    emailLabel: 'Email', // フォーム上のメールアドレス入力欄のラベル (デフォルトは 'メールアドレス')
+    name: '送り主太郎',
+    from: 'sender@example.com',
+  }
+
   AutoReplyFromForm(e.response, config);
 }
 ```
