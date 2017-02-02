@@ -5,8 +5,9 @@
  * @param {Object} config スクリプトで使用する Config
  */
 function send(response, config) {
+  if (! config) config = {};
   var formData = getPostDataFromForm_(response);
-  var emailMessageTemplate = getEmailMessageTemplate_(config.docId);
+  var emailMessageTemplate = getEmailMessageTemplate_(config);
   var emailMessage = createEmailMessage_(emailMessageTemplate, formData);
   sendEmail_(formData, emailMessage, config);
 }
@@ -40,10 +41,10 @@ var getPostDataFromForm_ = function(response) {
  *
  * @return {Object} タイトルと本文を含むオブジェクト
  */
-var getEmailMessageTemplate_ = function(docId) {
+var getEmailMessageTemplate_ = function(config) {
   var doc, subject, body, template;
   
-  if (docId) {
+  if (config.docId) {
     doc = DocumentApp.openById(docId);
     subject = doc.getName();
     body = doc.getBody().getText();
@@ -103,9 +104,9 @@ var createEmailMessage_ = function(template, formData) {
  * 
  */
 var sendEmail_ = function(formData, emailMessage, config) {
-  var recipient, options, subject, body, emailLabel;
+  var recipient, options, subject, body, emailLabel = 'メールアドレス';
   
-  emailLabel = config.emailLabel || 'メールアドレス';
+  if (config.emailLabel) emailLabel = config.emailLabel;
   recipient = formData[emailLabel];
 
   options = {}
