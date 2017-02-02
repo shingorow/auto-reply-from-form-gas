@@ -1,4 +1,4 @@
-# Auto reply email script for Google Form
+# Auto reply email script for Google Forms
 Google Forms でフォーム送信時に登録したメールアドレス宛にメールを送信する Google Apps Script
 
 Google Apps Script Project Key: MVmb-M4ySRz0LLn941DdUGrFSwZrFpnJA
