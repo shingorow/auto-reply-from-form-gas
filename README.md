@@ -15,9 +15,18 @@ function onSubmit(e) {
     from: 'sender@example.com',
   }
 
-  AutoReplyFromForm(e.response, config);
+  AutoReplyFromForm.send(e.response, config);
 }
 ```
 config の docId と emailLabel 以外は GmailApps の options の項目を設定できます。
 
 [Class GmailApp  |  Apps Script  |  Google Developers](https://developers.google.com/apps-script/reference/gmail/gmail-app#sendemailrecipient-subject-body-options)
+自動返信文はデフォルトで
+```
+下記の内容で登録しました
+####################
+フォームのラベル: 入力内容
+…
+####################
+```
+件名は「フォームへの登録が完了しました」となっています。
