@@ -45,7 +45,7 @@ var getEmailMessageTemplate_ = function(config) {
   var doc, subject, body, template;
   
   if (config.docId) {
-    doc = DocumentApp.openById(docId);
+    doc = DocumentApp.openById(config.docId);
     subject = doc.getName();
     body = doc.getBody().getText();
     template = {
